@@ -56,22 +56,6 @@
                 <div class="caption">celsius</div>
         </div>
         
-        <div class='legendContainer'>
-          <div class='legendTitle'></div>
-            <div class='legendScale'>
-              <ul class='legendLabel'>           
-                <li><span style='background:#50FCFC;'></span><br/><b>Light Rain</b></li>
-                <li><span style='background:#00A8FC;'></span><br/><b>Rain Showers</b></li>
-                <li><span style='background:#24D000;'></span><br/><b>Rain</b></li>
-                <li><span style='background:#64E000;'></span><br/><b>Heavy Rain</b></li>
-                <li><span style='background:#E8A824;'></span><br/><b>Very Heavy Rain</b></li>
-                <li><span style='background:#FC1414;'></span><br/><b>Extreme Rain</b></li>
-                <li><span style='background:#8C0000;'></span><br/><b>Thunderstorm</b></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
      <script>
 
              var map = L.map('map').setView([10.0, 76.5], 5);
@@ -108,7 +92,7 @@
                                    
 //          files/kml/wrf_rainfall_201908070600.kml                          
 //           var kmlLayer = new L.KML("/eastwindconsult.github.io/wrf_temp2m.kml", {async: true});
-            var kmlLayer = new L.KML("/forecast/india/dbz/2022120800/wrf_dbz.kml", {async: true});
+            var kmlLayer = new L.KML("/forecast/india/dbz/2022121900/wrf_dbz.kml", {async: true});
 
             var mapKmlLayer = map.addLayer(kmlLayer);
 
@@ -119,4 +103,3 @@
     <script src="js/record.js"></script>
 </body>            
 </html>
-
