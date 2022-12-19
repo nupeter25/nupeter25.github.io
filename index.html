@@ -1,7 +1,7 @@
 <!-- This is written by Peter Nunekpeku | pnunekpeku5@gmail.com | eastwindconsultintl@gmail.com -->        
 <!--  modified 2022-06-30 UTC  -->
 
-<html lang="en">
+<html>
 <head>
        <title>METBEAT WEATHER INDIA</title>
 
@@ -32,9 +32,7 @@
       <div class="buttons">
           <div>
               <ul id="fslides">
-              <li class="fslide" id="fcstDate"></li>
-              <li class="fslide" id="fcstHour"></li>
-              <li class="fslide" id="fcstZone">UTC</li>
+              <li class="fslide"></li><li class="fslide"></li><li class="fslide">UTC</li>
               <br>
               </ul>
               <br>
@@ -54,8 +52,8 @@
                 <img src="images/metbeat_weather.png" alt="metbeat_weather_logo" />
         </div>
         <div class="legend">
-                <img src="images/wrf_temp2m_lb.png" alt="Filled Total Precipitation"/>
-                <div class="caption">celsius</div>
+                <img src="images/wrf_totalprecip_lb.png" alt="Filled Total Precipitation"/>
+		<div class="caption">mm</div>
         </div>
         
         <div class='legendContainer'>
@@ -74,51 +72,49 @@
           </div>
         </div>
 
+
      <script>
 
-             var map = L.map('map').setView([10.0, 85.25], 4);
-                 map.options.minZoom = 4;    
-	               map.options.maxZoom = 6; // Reduce this for free editions                 
-             const bounds = [
-			                  [0.5,-10.0], // SouthWest Coordinates  2.282608,-17.84559
-			                  [45.0,180.0] // NorthEast Coordinates  17.5386,15.44559
+        var map = L.map('map').setView([15.0, 76.0], 6);
+            map.options.minZoom = 4;    
+	    map.options.maxZoom = 6; // Reduce this for free editions                 
+        const bounds = [
+			                  [-15.0,70.0], // SouthWest Coordinates  2.282608,-17.84559
+			                  [55.0,90.0] // NorthEast Coordinates  17.5386,15.44559
 		                   ];
 
-//           L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
              L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
 
-                attribution: '<a href="https://www.metbeat.com">Metbeat Weather</a> | \
+                attribution: '<a href="https://www.metbeatnews.com">Metbeat Weather</a> | \
                 <a href="https://web.facebook.com/eastwindconsult">Powered by &copy; EastwindConsult</a> | \
                 &copy; <a href="https://server.arcgisonline.com">ESRI ArcGIS</a> '
             }).addTo(map);
             
 //       Uploading Shapefile of India Outline Map
 
-            var indiaOutline = new L.Shapefile('/shapefile/IndiaOutlineMap.zip',{});
+             var indiashapefile = new L.Shapefile('/shapefile/IndiaOutlineMap.zip',{});
              
-            var keralaDistricts = new L.GeoJSON.AJAX("KERALA_STATE.geojson");             
-//            var indiaStates = new L.GeoJSON.AJAX("india_states.geojson");  
+             var keralashapfile = new L.GeoJSON.AJAX("/shapefile/KERALA_DISTRICTS.geojson");             
              
-//          var indiashapefile = new L.Shapefile('/shapefile/gadm41_IND_shp.zip',{});
+             
+//           var indiashapefile = new L.Shapefile('/shapefile/gadm41_IND_shp.zip',{});
 		              
-		        indiaOutline.addTo(map);
-		        indiaOutline.once("data:loaded", function() {
-		        });      		   
+	     indiashapefile.addTo(map);
+	     indiashapefile.once("data:loaded", function() {
+	           });      		   
 		          
-		        keralaDistricts.addTo(map);
-//            indiaStates.addTo(map);
+	     keralashapfile.addTo(map);
                                    
 //          files/kml/wrf_rainfall_201908070600.kml                          
-//           var kmlLayer = new L.KML("/eastwindconsult.github.io/wrf_temp2m.kml", {async: true});
-            var kmlLayer = new L.KML("/forecast/india/totalprecip/2022121800/wrf_precslpwind.kml", {async: true});
-
+ 	    var kmlLayer = new L.KML("/forecast/india/totalprecip/2022121900/wrf_precslpwind.kml", {async: true});
+            
             var mapKmlLayer = map.addLayer(kmlLayer);
 
-	          map.setMaxBounds(bounds, {reset: true});
+            map.setMaxBounds(bounds, {reset: true});
 
      </script>
     <script src="js/mykmlanimation2.js"></script>
     <script src="js/record.js"></script>
 </body>            
 </html>
-
