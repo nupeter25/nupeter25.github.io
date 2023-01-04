@@ -530,7 +530,7 @@ ul.legendLabel {
     flex: auto;
     flex-flow: row wrap;
     text-align: center;
-    font-size: 2vh;
+    font-size: 1.5vh;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
