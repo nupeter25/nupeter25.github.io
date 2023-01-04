@@ -78,18 +78,18 @@
             
 //       Uploading Shapefile of India Outline Map
 
-            var indiaOutline = new L.Shapefile('/shapefile/IndiaOutlineMap.zip',{});
+            var indiashapefile = new L.Shapefile('/shapefile/IndiaOutlineMap.zip',{});
              
-            var keralaDistricts = new L.GeoJSON.AJAX("/shapefile/KERALA_STATE.geojson");             
-//            var indiaStates = new L.GeoJSON.AJAX("india_states.geojson");  
+            var keralashapfile = new L.GeoJSON.AJAX("/shapefile/KERALA_DISTRICTS.geojson");             
+             
              
 //          var indiashapefile = new L.Shapefile('/shapefile/gadm41_IND_shp.zip',{});
 		              
-		        indiaOutline.addTo(map);
-		        indiaOutline.once("data:loaded", function() {
+		        indiashapefile.addTo(map);
+		        indiashapefile.once("data:loaded", function() {
 		        });      		   
 		          
-		        keralaDistricts.addTo(map);
+		        keralashapfile.addTo(map);
 //            indiaStates.addTo(map);
                                    
 //          files/kml/wrf_rainfall_201908070600.kml                          
